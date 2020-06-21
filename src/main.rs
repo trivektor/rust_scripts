@@ -1,3 +1,5 @@
+mod dad_jokes;
+
 fn main() {
-    println!("Hello, world!");
+    println!("{}", dad_jokes::get());
 }
