@@ -6,15 +6,16 @@ const API_URL : &str = "https://api.spacexdata.com/v3";
 
 #[derive(Deserialize, Debug)]
 pub struct Rocket {
-    rocket_id: String,
-    rocket_name: String,
-    rocket_type: String,
+    pub rocket_id: String,
+    pub rocket_name: String,
+    pub rocket_type: String,
+    pub boosters: Option<i32>
 }
 
 #[derive(Deserialize, Debug)]
 pub struct Launch {
-    mission_name: String,
-    rocket: Rocket
+    pub mission_name: String,
+    pub rocket: Rocket
 }
 
 pub async fn get_launches() -> Result<(Vec<Launch>), reqwest::Error> {
