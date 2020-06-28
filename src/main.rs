@@ -1,5 +1,13 @@
-mod dad_jokes;
+#[allow(unused)]
 
-fn main() {
-    println!("{}", dad_jokes::get());
+//mod dad_jokes;
+mod spacex_api;
+
+#[tokio::main]
+async fn main() {
+    let launches = spacex_api::get_launches().await;
+    let rockets = spacex_api::get_rockets().await;
+
+    println!("{:?}", launches);
+    println!("{:?}", rockets);
 }
